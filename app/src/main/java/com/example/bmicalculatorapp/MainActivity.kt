@@ -107,20 +107,22 @@ fun BMIScreen() {
         Spacer(modifier = Modifier.height(24.dp))
 
         // Result display
-        if (bmiResult != null && bmiCategory != null) {
-            val color = when (bmiCategory) {
+        val result = bmiResult
+        val category = bmiCategory
+        if (result != null && category != null) {
+            val color = when (category) {
                 BMICategory.NORMAL -> Color.Green
                 else -> Color.Red
             }
             Text(
-                text = "Your BMI: %.1f".format(bmiResult!!),
+                text = "Your BMI: %.1f".format(result),
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
                 color = color
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = bmiCategory!!.message,
+                text = category.message,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = color
